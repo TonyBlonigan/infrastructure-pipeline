@@ -15,6 +15,6 @@ node('linux') {
         --key-name in_class_2 \
         --security-group-ids sg-0c5523b267fdfc1a9 \
         --subnet-id subnet-09d3b89d760a3125f \
-        --region us-east-1 | jq {"instance": .Reservations.Instances.InstanceId}"
+        --region us-east-1 | jq {'instance': .Reservations.Instances.InstanceId}"
     }    
 }
