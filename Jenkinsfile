@@ -17,5 +17,4 @@ node('linux') {
         --subnet-id subnet-09d3b89d760a3125f \
         --region us-east-1
     }
-
 }
