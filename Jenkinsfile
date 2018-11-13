@@ -8,7 +8,7 @@ node('linux') {
         sh "aws ec2 describe-instances --region us-east-1"
     }
     stage ("CreateInstance") {
-        def output = sh returnStdout: true, script: "aws ec2 run-instances \
+        sh returnStdout: true, script: "aws ec2 run-instances \
         --image-id ami-013be31976ca2c322 \
         --count 1 \
         --instance-type t2.micro \
@@ -16,9 +16,5 @@ node('linux') {
         --security-group-ids sg-0c5523b267fdfc1a9 \
         --subnet-id subnet-09d3b89d760a3125f \
         --region us-east-1"
-    }
-    stage ("TerminateInstances") {
-        sh 'aws ec2 wait instance-status-ok --instance-ids --region us-east-1' + output
-    }
-    
+    }    
 }
