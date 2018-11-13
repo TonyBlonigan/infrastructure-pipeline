@@ -17,7 +17,7 @@ node('linux') {
         --subnet-id subnet-09d3b89d760a3125f \
         --region us-east-1"
     }
-    stage ("TerminateInstances) {
+    stage ("TerminateInstances") {
         def output = sh "returnStdout: true, script: 'aws ec2 describe-instances | jq .'"
     }
 }
