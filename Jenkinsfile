@@ -20,4 +20,5 @@ node('linux') {
     stage ("TerminateInstances") {
         sh 'aws ec2 wait instance-status-ok --instance-ids --region us-east-1' + output
     }
+    
 }
